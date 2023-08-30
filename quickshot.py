@@ -20,6 +20,8 @@ class Screenshot:
         self.mouse_listener = mouse.Listener(on_move=self.on_move)
         self.mouse_listener.start()
 
+        self.screenshotTaken = False
+
     def update_region_capture(self):
         if self.alt_pressed and self.shift_pressed:
             self.region_capture = True
@@ -67,12 +69,13 @@ class Screenshot:
                 os.makedirs(self.dest_folder)
             screenshot.save(self.dest_folder + "capture.png")
             print(f"Screenshot saved at {self.dest_folder + 'capture.png'}")
+            self.screenshotTaken = True
 
     def run(self):
         print("quickshot running")
         # TODO: Revisit this try/except logic (needed?)
         try:
-            while True:
+            while not self.screenshotTaken:
                 pass  # Keep the main thread alive
         except KeyboardInterrupt:
             self.listener.stop()
