@@ -41,6 +41,8 @@ class OCR_Grab():
                 text = self.extractText(full_path)
                 if text != "":
                     print(f"{file} contains text: \n{text}")
+                    text = text.replace(' ', '')
+                    print(f"Removing whitespace: \n{text}")
                     pyperclip.copy(text)
                     print("Text copied to clipboard")
                     os.remove(full_path)
