@@ -14,7 +14,7 @@ pip3 insatll -r requirements.txt --usepep517
 ```
 ## Installation (Arch)
 ```
-sudo pacman -Sy install python3-dev tesseract libtesseract-dev xclip (select option for desired language for OCR after running this command)
+sudo pacman -Sy install python3-dev tesseract libtesseract-dev xclip # (select option for desired language for OCR after running this command)
 git clone https://github.com/Cam-Can-Do/ocr_on_demand
 cd ocr_on_demand
 python3 -m venv venv
